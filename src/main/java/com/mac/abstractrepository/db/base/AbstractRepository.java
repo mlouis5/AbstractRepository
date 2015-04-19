@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mac.abstractrepository;
+package com.mac.abstractrepository.db.base;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Transactional(readOnly = true)
 public abstract class AbstractRepository<T> {
-    @PersistenceContext
+    @PersistenceContext(unitName = "AbstractRepositoryPU")
     protected EntityManager em;
     private final Class<T> entityClass;
 
@@ -56,9 +56,7 @@ public abstract class AbstractRepository<T> {
     public T find(Object id) {
         T entity = null;
         if (Objects.nonNull(id)) {
-            System.out.println("Looking for id: " + id);
             entity = em.find(entityClass, id);
-            System.out.println("entity: " + entity);
         }
         return entity;
     }

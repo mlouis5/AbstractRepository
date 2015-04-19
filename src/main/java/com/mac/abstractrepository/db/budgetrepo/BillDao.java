@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mac.abstractrepository.budgetrepo;
+package com.mac.abstractrepository.db.budgetrepo;
 
-import com.mac.abstractrepository.AbstractRepository;
-import com.mac.budgetentities.pojos.User;
-//import com.mac.budgetsocket.pojos.User;
+import com.mac.abstractrepository.db.base.AbstractRepository;
+import com.mac.abstractrepository.entities.budget.Bill;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,10 +14,10 @@ import org.springframework.stereotype.Component;
  * @author Mac
  */
 @Component
-public class UserDao extends AbstractRepository<User>{
+public class BillDao extends AbstractRepository<Bill>{
 
-    public UserDao() {
-        super(User.class);
+    public BillDao() {
+        super(Bill.class);
     }
     
 }
